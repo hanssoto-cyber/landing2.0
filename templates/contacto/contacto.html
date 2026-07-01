@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Contacto - hanssoto{% endblock %}
+
+{% block content %}
+<section>
+    <h1>Contacto</h1>
+
+    {% if messages %}
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Enviar</button>
+    </form>
+</section>
+{% endblock %}
