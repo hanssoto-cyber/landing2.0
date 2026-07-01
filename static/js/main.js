@@ -35,3 +35,27 @@ if (elementosReveal.length > 0) {
         });
     });
 }
+
+// Contador animado en stats
+const contadores = document.querySelectorAll('[data-counter]');
+if (contadores.length > 0) {
+    contadores.forEach((el) => {
+        const valorFinal = parseInt(el.getAttribute('data-counter'), 10);
+        const obj = { val: 0 };
+
+        gsap.to(obj, {
+            val: valorFinal,
+            duration: 1.5,
+            ease: 'power1.out',
+            snap: { val: 1 },
+            scrollTrigger: {
+                trigger: el,
+                start: 'top 85%',
+                toggleActions: 'play none none none',
+            },
+            onUpdate: () => {
+                el.textContent = obj.val;
+            },
+        });
+    });
+}
