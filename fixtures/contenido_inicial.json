@@ -1,0 +1,138 @@
+[
+{
+  "model": "proyectos.proyecto",
+  "pk": 2,
+  "fields": {
+    "titulo": "Portafolio SOC — Labs Blue Team",
+    "descripcion": "Conjunto de 3 laboratorios de defensa: simulación de incidente con informe y evidencias, diseño de red segura con ACLs en Packet Tracer, y hardening de sistema Windows mediante políticas GPO.",
+    "tecnologias": "Packet Tracer, Windows GPO, Documentación técnica, Análisis de incidentes",
+    "repo_url": "https://github.com/hanssoto-cyber/Portafolio-SOC",
+    "demo_url": null,
+    "imagen": "",
+    "destacado": false,
+    "creado": "2026-07-01T20:52:02.808Z"
+  }
+},
+{
+  "model": "proyectos.proyecto",
+  "pk": 3,
+  "fields": {
+    "titulo": "Portafolio Pentest — Auditoría de Seguridad Web",
+    "descripcion": "Auditoría de seguridad web académica sobre e-commerce PYME (anonimizada): reconocimiento pasivo/activo, análisis de vulnerabilidades y reporte alineado a OWASP Top 10 y MITRE ATT&CK.",
+    "tecnologias": "Nmap, Nessus, Nikto, OWASP ZAP, OWASP Top 10",
+    "repo_url": "https://github.com/hanssoto-cyber/Portafolio-pentest",
+    "demo_url": null,
+    "imagen": "",
+    "destacado": false,
+    "creado": "2026-07-01T20:53:22.589Z"
+  }
+},
+{
+  "model": "proyectos.proyecto",
+  "pk": 4,
+  "fields": {
+    "titulo": "Landing Django — Portafolio Full-Stack",
+    "descripcion": "Sitio personal con arquitectura MTV, Tailwind CSS v4 y animaciones GSAP, contenerizado con Docker para despliegue en producción.",
+    "tecnologias": "Django, Tailwind CSS, GSAP, Docker",
+    "repo_url": "https://github.com/hanssoto-cyber/landing2.0",
+    "demo_url": null,
+    "imagen": "",
+    "destacado": false,
+    "creado": "2026-07-01T20:54:08.592Z"
+  }
+},
+{
+  "model": "proyectos.proyecto",
+  "pk": 5,
+  "fields": {
+    "titulo": "Honeypot Cowrie con Dashboard Django",
+    "descripcion": "Despliegue de honeypot Cowrie para capturar intentos de intrusión SSH/Telnet, con dashboard en Django para analizar los logs de ataques (IPs origen, comandos ejecutados, credenciales probadas).",
+    "tecnologias": "Cowrie, Django, Análisis de logs",
+    "repo_url": "https://github.com/hanssoto-cyber/cowrie-dashboard",
+    "demo_url": null,
+    "imagen": "",
+    "destacado": false,
+    "creado": "2026-07-01T20:54:52.212Z"
+  }
+},
+{
+  "model": "landing.certificacion",
+  "pk": 2,
+  "fields": {
+    "nombre": "Cisco CCNA — Conmutación, Enrutamiento y Redes Inalámbricas",
+    "institucion": "Cisco",
+    "fecha": "2025-01-01",
+    "credencial_url": null,
+    "logo": ""
+  }
+},
+{
+  "model": "landing.certificacion",
+  "pk": 3,
+  "fields": {
+    "nombre": "Fundamentos de Inteligencia Artificial",
+    "institucion": "IBM SkillsBuild",
+    "fecha": "2025-01-01",
+    "credencial_url": null,
+    "logo": ""
+  }
+},
+{
+  "model": "landing.certificacion",
+  "pk": 4,
+  "fields": {
+    "nombre": "Desarrollo Full Stack Python Trainee V2.0",
+    "institucion": "Aula Digital / SENCE",
+    "fecha": "2026-07-01",
+    "credencial_url": null,
+    "logo": ""
+  }
+},
+{
+  "model": "landing.certificacion",
+  "pk": 5,
+  "fields": {
+    "nombre": "Técnico en Telecomunicaciones",
+    "institucion": "INACAP",
+    "fecha": "2012-01-01",
+    "credencial_url": null,
+    "logo": ""
+  }
+},
+{
+  "model": "landing.estadistica",
+  "pk": 2,
+  "fields": {
+    "etiqueta": "Laboratorios completados",
+    "valor": 3,
+    "orden": 1
+  }
+},
+{
+  "model": "landing.estadistica",
+  "pk": 3,
+  "fields": {
+    "etiqueta": "Auditorías realizadas",
+    "valor": 1,
+    "orden": 2
+  }
+},
+{
+  "model": "landing.estadistica",
+  "pk": 4,
+  "fields": {
+    "etiqueta": "Proyectos en GitHub",
+    "valor": 4,
+    "orden": 3
+  }
+},
+{
+  "model": "landing.estadistica",
+  "pk": 5,
+  "fields": {
+    "etiqueta": "Años en soporte TI",
+    "valor": 6,
+    "orden": 4
+  }
+}
+]
