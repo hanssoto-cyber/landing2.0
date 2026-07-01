@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "_Pendiente — se agregará una vez desplegado el proyecto con Docker y estilo final._",
   "main": "index.js",
- "scripts": {
-  "build:css": "tailwindcss -i ./static/css/src/input.css -o ./static/css/style.css --minify",
-  "watch:css": "tailwindcss -i ./static/css/src/input.css -o ./static/css/style.css --watch"
+"scripts": {
+  "build:css": "tailwindcss -i ./tailwind_src/input.css -o ./static/css/style.css --minify",
+  "watch:css": "tailwindcss -i ./tailwind_src/input.css -o ./static/css/style.css --watch"
 },
   "repository": {
     "type": "git",
