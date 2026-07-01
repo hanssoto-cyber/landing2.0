@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Blog - hanssoto{% endblock %}
+
+{% block content %}
+<section>
+    <h1>Blog</h1>
+    {% for post in posts %}
+        <article>
+            <h2><a href="{{ post.get_absolute_url }}">{{ post.titulo }}</a></h2>
+            <p><small>{{ post.categoria }} · {{ post.creado|date:"d M Y" }}</small></p>
+            <p>{{ post.resumen }}</p>
+        </article>
+    {% empty %}
+        <p>Aún no hay posts publicados.</p>
+    {% endfor %}
+</section>
+{% endblock %}
