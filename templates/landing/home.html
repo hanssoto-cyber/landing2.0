@@ -7,4 +7,34 @@
     <h1>Hola, soy Hans</h1>
     <p>SOC Analyst | Pentester | Developer</p>
 </section>
+
+<section>
+    <h2>En números</h2>
+    {% for stat in estadisticas %}
+        <div>
+            <strong>{{ stat.valor }}</strong>
+            <span>{{ stat.etiqueta }}</span>
+        </div>
+    {% empty %}
+        <p>Aún no hay estadísticas cargadas.</p>
+    {% endfor %}
+</section>
+
+<section>
+    <h2>Certificaciones</h2>
+    {% for cert in certificaciones %}
+        <article>
+            {% if cert.logo %}
+                <img src="{{ cert.logo.url }}" alt="{{ cert.nombre }}" width="60">
+            {% endif %}
+            <h3>{{ cert.nombre }}</h3>
+            <p>{{ cert.institucion }} · {{ cert.fecha|date:"M Y" }}</p>
+            {% if cert.credencial_url %}
+                <a href="{{ cert.credencial_url }}" target="_blank">Ver credencial</a>
+            {% endif %}
+        </article>
+    {% empty %}
+        <p>Aún no hay certificaciones cargadas.</p>
+    {% endfor %}
+</section>
 {% endblock %}
