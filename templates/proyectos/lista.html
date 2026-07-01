@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Proyectos - hanssoto{% endblock %}
+
+{% block content %}
+<section>
+    <h1>Proyectos</h1>
+    {% for proyecto in proyectos %}
+        <article>
+            <h2>{{ proyecto.titulo }}</h2>
+            <p>{{ proyecto.descripcion }}</p>
+            <p>
+                {% for tech in proyecto.lista_tecnologias %}
+                    <span>{{ tech }}</span>
+                {% endfor %}
+            </p>
+            {% if proyecto.repo_url %}
+                <a href="{{ proyecto.repo_url }}" target="_blank">Ver repo</a>
+            {% endif %}
+            {% if proyecto.demo_url %}
+                <a href="{{ proyecto.demo_url }}" target="_blank">Ver demo</a>
+            {% endif %}
+        </article>
+    {% empty %}
+        <p>Aún no hay proyectos cargados.</p>
+    {% endfor %}
+</section>
+{% endblock %}
