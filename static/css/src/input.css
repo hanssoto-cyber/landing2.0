@@ -14,6 +14,6 @@
 }
 @layer components {
   input, textarea {
-    @apply w-full bg-terminal-panel border border-terminal-green-dim text-terminal-green px-3 py-2 focus:outline-none focus:border-terminal-green;
+    @apply w-full bg-terminal-panel border border-terminal-border text-terminal-text px-3 py-2 focus:outline-none focus:border-terminal-green;
   }
 }

@@ -5,12 +5,12 @@
 {% block content %}
 <section class="px-6 py-16 max-w-4xl mx-auto">
     <p class="text-terminal-gray text-sm mb-2">root@hanssoto:~$ ls -la proyectos/</p>
-    <h1 class="text-3xl font-bold text-terminal-green mb-8">Proyectos</h1>
+    <h1 class="text-3xl font-bold text-white mb-8">Proyectos</h1>
 
     <div class="grid md:grid-cols-2 gap-6">
         {% for proyecto in proyectos %}
-            <article class="border border-terminal-border bg-terminal-panel p-5 hover:border-terminal-green hover:shadow-[0_0_15px_-3px_var(--color-terminal-green)] transition-all">
-                <h2 class="text-terminal-green font-bold text-lg mb-2">{{ proyecto.titulo }}</h2>
+            <article data-reveal class="border border-terminal-border bg-terminal-panel p-5 hover:border-terminal-green hover:shadow-[0_0_15px_-3px_var(--color-terminal-green)] transition-all">
+                <h2 class="text-white font-bold text-lg mb-2">{{ proyecto.titulo }}</h2>
                 <p class="text-terminal-gray text-sm mb-4">{{ proyecto.descripcion }}</p>
 
                 <div class="flex flex-wrap gap-2 mb-4">
