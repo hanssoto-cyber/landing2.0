@@ -1,6 +1,10 @@
-<nav>
-    <a href="{% url 'home' %}">hanssoto</a>
-    <a href="{% url 'lista_proyectos' %}">Proyectos</a>
-    <a href="{% url 'lista_posts' %}">Blog</a>
-    <a href="{% url 'contacto' %}">Contacto</a>
+<nav class="border-b border-terminal-border bg-terminal-panel px-6 py-4 flex items-center justify-between">
+    <a href="{% url 'home' %}" class="text-terminal-green font-bold tracking-wider">
+        <span class="text-terminal-gray">root@hanssoto:~$</span> whoami
+    </a>
+    <div class="flex gap-6 text-sm">
+        <a href="{% url 'lista_proyectos' %}" class="hover:text-white transition-colors">proyectos</a>
+        <a href="{% url 'lista_posts' %}" class="hover:text-white transition-colors">blog</a>
+        <a href="{% url 'contacto' %}" class="hover:text-white transition-colors">contacto</a>
+    </div>
 </nav>

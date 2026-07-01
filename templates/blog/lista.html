@@ -3,16 +3,22 @@
 {% block title %}Blog - hanssoto{% endblock %}
 
 {% block content %}
-<section>
-    <h1>Blog</h1>
-    {% for post in posts %}
-        <article>
-            <h2><a href="{{ post.get_absolute_url }}">{{ post.titulo }}</a></h2>
-            <p><small>{{ post.categoria }} · {{ post.creado|date:"d M Y" }}</small></p>
-            <p>{{ post.resumen }}</p>
-        </article>
-    {% empty %}
-        <p>Aún no hay posts publicados.</p>
-    {% endfor %}
+<section class="px-6 py-16 max-w-4xl mx-auto">
+    <p class="text-terminal-gray text-sm mb-2">root@hanssoto:~$ ls -la blog/</p>
+    <h1 class="text-3xl font-bold text-terminal-green mb-8">Blog</h1>
+
+    <div class="space-y-6">
+        {% for post in posts %}
+            <article class="border border-terminal-border bg-terminal-panel p-5 hover:border-terminal-green transition-colors">
+                <p class="text-terminal-gray text-xs mb-1">{{ post.categoria }} · {{ post.creado|date:"d M Y" }}</p>
+                <h2 class="text-terminal-green font-bold text-lg mb-2">
+                    <a href="{{ post.get_absolute_url }}" class="hover:underline">{{ post.titulo }}</a>
+                </h2>
+                <p class="text-terminal-text text-sm">{{ post.resumen }}</p>
+            </article>
+        {% empty %}
+            <p class="text-terminal-gray">Aún no hay posts publicados.</p>
+        {% endfor %}
+    </div>
 </section>
 {% endblock %}

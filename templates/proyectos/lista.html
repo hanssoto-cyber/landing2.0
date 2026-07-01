@@ -3,26 +3,34 @@
 {% block title %}Proyectos - hanssoto{% endblock %}
 
 {% block content %}
-<section>
-    <h1>Proyectos</h1>
-    {% for proyecto in proyectos %}
-        <article>
-            <h2>{{ proyecto.titulo }}</h2>
-            <p>{{ proyecto.descripcion }}</p>
-            <p>
-                {% for tech in proyecto.lista_tecnologias %}
-                    <span>{{ tech }}</span>
-                {% endfor %}
-            </p>
-            {% if proyecto.repo_url %}
-                <a href="{{ proyecto.repo_url }}" target="_blank">Ver repo</a>
-            {% endif %}
-            {% if proyecto.demo_url %}
-                <a href="{{ proyecto.demo_url }}" target="_blank">Ver demo</a>
-            {% endif %}
-        </article>
-    {% empty %}
-        <p>Aún no hay proyectos cargados.</p>
-    {% endfor %}
+<section class="px-6 py-16 max-w-4xl mx-auto">
+    <p class="text-terminal-gray text-sm mb-2">root@hanssoto:~$ ls -la proyectos/</p>
+    <h1 class="text-3xl font-bold text-terminal-green mb-8">Proyectos</h1>
+
+    <div class="grid md:grid-cols-2 gap-6">
+        {% for proyecto in proyectos %}
+            <article class="border border-terminal-border bg-terminal-panel p-5 hover:border-terminal-green hover:shadow-[0_0_15px_-3px_var(--color-terminal-green)] transition-all">
+                <h2 class="text-terminal-green font-bold text-lg mb-2">{{ proyecto.titulo }}</h2>
+                <p class="text-terminal-gray text-sm mb-4">{{ proyecto.descripcion }}</p>
+
+                <div class="flex flex-wrap gap-2 mb-4">
+                    {% for tech in proyecto.lista_tecnologias %}
+                        <span class="border border-terminal-border text-terminal-gray text-xs px-2 py-1">{{ tech }}</span>
+                    {% endfor %}
+                </div>
+
+                <div class="flex gap-4 text-sm">
+                    {% if proyecto.repo_url %}
+                        <a href="{{ proyecto.repo_url }}" target="_blank" class="text-terminal-green hover:underline">$ git clone →</a>
+                    {% endif %}
+                    {% if proyecto.demo_url %}
+                        <a href="{{ proyecto.demo_url }}" target="_blank" class="text-terminal-green hover:underline">$ ./demo →</a>
+                    {% endif %}
+                </div>
+            </article>
+        {% empty %}
+            <p class="text-terminal-gray col-span-2">Aún no hay proyectos cargados.</p>
+        {% endfor %}
+    </div>
 </section>
 {% endblock %}

@@ -3,19 +3,34 @@
 {% block title %}Contacto - hanssoto{% endblock %}
 
 {% block content %}
-<section>
-    <h1>Contacto</h1>
+<section class="px-6 py-16 max-w-2xl mx-auto">
+    <p class="text-terminal-gray text-sm mb-2">root@hanssoto:~$ ./contacto.sh</p>
+    <h1 class="text-3xl font-bold text-terminal-green mb-8">Contacto</h1>
 
     {% if messages %}
         {% for message in messages %}
-            <p>{{ message }}</p>
+            <p class="border border-terminal-green-dim bg-terminal-panel text-terminal-green px-4 py-2 mb-6 text-sm">
+                &gt; {{ message }}
+            </p>
         {% endfor %}
     {% endif %}
 
-    <form method="post">
+    <form method="post" class="space-y-5">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Enviar</button>
+        {% for field in form %}
+            <div>
+                <label for="{{ field.id_for_label }}" class="block text-terminal-gray text-sm mb-1">
+                    {{ field.label }}:
+                </label>
+                {{ field }}
+                {% if field.errors %}
+                    <p class="text-terminal-red text-xs mt-1">{{ field.errors|striptags }}</p>
+                {% endif %}
+            </div>
+        {% endfor %}
+        <button type="submit" class="border border-terminal-green text-terminal-green px-6 py-2 hover:bg-terminal-green hover:text-terminal-bg transition-colors">
+            $ enviar
+        </button>
     </form>
 </section>
 {% endblock %}

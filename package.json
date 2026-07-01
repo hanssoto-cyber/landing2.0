@@ -1,0 +1,26 @@
+{
+  "name": "landing2.0",
+  "version": "1.0.0",
+  "description": "_Pendiente — se agregará una vez desplegado el proyecto con Docker y estilo final._",
+  "main": "index.js",
+ "scripts": {
+  "build:css": "tailwindcss -i ./static/css/src/input.css -o ./static/css/style.css --minify",
+  "watch:css": "tailwindcss -i ./static/css/src/input.css -o ./static/css/style.css --watch"
+},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hanssoto-cyber/landing2.0.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/hanssoto-cyber/landing2.0/issues"
+  },
+  "homepage": "https://github.com/hanssoto-cyber/landing2.0#readme",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.2",
+    "tailwindcss": "^4.3.2"
+  }
+}

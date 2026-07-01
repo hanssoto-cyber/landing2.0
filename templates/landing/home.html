@@ -3,38 +3,47 @@
 {% block title %}Inicio - hanssoto{% endblock %}
 
 {% block content %}
-<section>
-    <h1>Hola, soy Hans</h1>
-    <p>SOC Analyst | Pentester | Developer</p>
+<section class="px-6 py-20 max-w-4xl mx-auto">
+    <p class="text-terminal-gray text-sm mb-2">root@hanssoto:~$ cat perfil.txt</p>
+    <h1 class="text-4xl md:text-5xl font-bold text-terminal-green mb-4">
+        Hola, soy Hans<span class="animate-pulse">_</span>
+    </h1>
+    <p class="text-terminal-gray text-lg">SOC Analyst | Pentester | Developer</p>
 </section>
 
-<section>
-    <h2>En números</h2>
-    {% for stat in estadisticas %}
-        <div>
-            <strong>{{ stat.valor }}</strong>
-            <span>{{ stat.etiqueta }}</span>
-        </div>
-    {% empty %}
-        <p>Aún no hay estadísticas cargadas.</p>
-    {% endfor %}
+<section class="px-6 py-12 max-w-4xl mx-auto border-t border-terminal-border">
+    <p class="text-terminal-gray text-sm mb-6">$ ./stats.sh --run</p>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        {% for stat in estadisticas %}
+            <div class="border border-terminal-border bg-terminal-panel p-4 text-center">
+                <strong class="block text-3xl text-terminal-green">{{ stat.valor }}</strong>
+                <span class="text-terminal-gray text-xs">{{ stat.etiqueta }}</span>
+            </div>
+        {% empty %}
+            <p class="text-terminal-gray col-span-4">Aún no hay estadísticas cargadas.</p>
+        {% endfor %}
+    </div>
 </section>
 
-<section>
-    <h2>Certificaciones</h2>
-    {% for cert in certificaciones %}
-        <article>
-            {% if cert.logo %}
-                <img src="{{ cert.logo.url }}" alt="{{ cert.nombre }}" width="60">
-            {% endif %}
-            <h3>{{ cert.nombre }}</h3>
-            <p>{{ cert.institucion }} · {{ cert.fecha|date:"M Y" }}</p>
-            {% if cert.credencial_url %}
-                <a href="{{ cert.credencial_url }}" target="_blank">Ver credencial</a>
-            {% endif %}
-        </article>
-    {% empty %}
-        <p>Aún no hay certificaciones cargadas.</p>
-    {% endfor %}
+<section class="px-6 py-12 max-w-4xl mx-auto border-t border-terminal-border">
+    <p class="text-terminal-gray text-sm mb-6">$ ls -la certificaciones/</p>
+    <div class="grid md:grid-cols-2 gap-4">
+        {% for cert in certificaciones %}
+            <article class="border border-terminal-border bg-terminal-panel p-4 flex gap-4 items-center">
+                {% if cert.logo %}
+                    <img src="{{ cert.logo.url }}" alt="{{ cert.nombre }}" class="w-12 h-12 object-contain">
+                {% endif %}
+                <div>
+                    <h3 class="text-terminal-green font-bold">{{ cert.nombre }}</h3>
+                    <p class="text-terminal-gray text-sm">{{ cert.institucion }} · {{ cert.fecha|date:"M Y" }}</p>
+                    {% if cert.credencial_url %}
+                        <a href="{{ cert.credencial_url }}" target="_blank" class="text-terminal-green-dim hover:text-terminal-green text-sm underline">ver credencial →</a>
+                    {% endif %}
+                </div>
+            </article>
+        {% empty %}
+            <p class="text-terminal-gray">Aún no hay certificaciones cargadas.</p>
+        {% endfor %}
+    </div>
 </section>
 {% endblock %}

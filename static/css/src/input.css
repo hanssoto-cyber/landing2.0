@@ -1,0 +1,19 @@
+@import "tailwindcss";
+@source "../../../templates";
+
+@theme {
+  --color-terminal-bg: #0a0a0a;
+  --color-terminal-panel: #111111;
+  --color-terminal-text: #c9d1d9;
+  --color-terminal-green: #00ff41;
+  --color-terminal-green-dim: #00b32d;
+  --color-terminal-red: #ff3b3b;
+  --color-terminal-gray: #6e7681;
+  --color-terminal-border: #262626;
+  --font-mono-terminal: "Share Tech Mono", "Fira Code", monospace;
+}
+@layer components {
+  input, textarea {
+    @apply w-full bg-terminal-panel border border-terminal-green-dim text-terminal-green px-3 py-2 focus:outline-none focus:border-terminal-green;
+  }
+}
