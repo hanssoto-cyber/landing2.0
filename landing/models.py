@@ -26,6 +26,7 @@ class Estadistica(models.Model):
     def __str__(self):
         return f"{self.valor} {self.etiqueta}"
 
+
 class Habilidad(models.Model):
     CATEGORIAS = [
         ('seguridad', 'Herramientas de Seguridad'),
@@ -36,7 +37,10 @@ class Habilidad(models.Model):
 
     nombre = models.CharField(max_length=50)
     categoria = models.CharField(max_length=20, choices=CATEGORIAS)
-    icono = models.ImageField(upload_to='habilidades/')
+    icono = models.CharField(
+        max_length=100,
+        help_text="Nombre del archivo en static/img/skills/, ej: python.png"
+    )
     orden = models.PositiveIntegerField(default=0)
 
     class Meta:
