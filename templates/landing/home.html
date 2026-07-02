@@ -27,6 +27,25 @@
 </section>
 
 <section class="px-6 py-12 max-w-4xl mx-auto border-t border-terminal-border">
+    <p class="text-terminal-gray text-sm mb-6">$ cat skills.json</p>
+    {% for categoria, habilidades in skills_por_categoria %}
+        <div class="mb-8">
+            <h3 class="text-terminal-green font-bold mb-4">{{ categoria }}</h3>
+            <div class="grid grid-cols-3 md:grid-cols-5 gap-4">
+                {% for skill in habilidades %}
+                    <div data-reveal class="border border-terminal-border bg-terminal-panel p-4 flex flex-col items-center gap-2 hover:border-terminal-green transition-colors">
+                        <img src="{{ skill.icono.url }}" alt="{{ skill.nombre }}" class="w-10 h-10 object-contain">
+                        <span class="text-terminal-gray text-xs text-center">{{ skill.nombre }}</span>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% empty %}
+        <p class="text-terminal-gray">Aún no hay habilidades cargadas.</p>
+    {% endfor %}
+</section>
+
+<section class="px-6 py-12 max-w-4xl mx-auto border-t border-terminal-border">
     <p class="text-terminal-gray text-sm mb-6">$ ls -la certificaciones/</p>
     <div class="grid md:grid-cols-2 gap-4">
         {% for cert in certificaciones %}
