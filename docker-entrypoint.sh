@@ -4,6 +4,9 @@ set -e
 echo "Aplicando migraciones..."
 python manage.py migrate --noinput
 
+echo "Creando superusuario (si no existe)..."
+python manage.py createsuperuser --noinput || true
+
 echo "Recolectando estáticos..."
 python manage.py collectstatic --noinput
 
