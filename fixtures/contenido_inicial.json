@@ -134,5 +134,85 @@
     "valor": 6,
     "orden": 4
   }
+},
+{
+  "model": "landing.habilidad",
+  "pk": 1,
+  "fields": {
+    "nombre": "Wireshark",
+    "categoria": "seguridad",
+    "icono": "wireshark.svg",
+    "orden": 0
+  }
+},
+{
+  "model": "landing.habilidad",
+  "pk": 2,
+  "fields": {
+    "nombre": "Nmap",
+    "categoria": "seguridad",
+    "icono": "nmap.png",
+    "orden": 1
+  }
+},
+{
+  "model": "landing.habilidad",
+  "pk": 3,
+  "fields": {
+    "nombre": "Splunk",
+    "categoria": "seguridad",
+    "icono": "splunk.svg",
+    "orden": 2
+  }
+},
+{
+  "model": "landing.habilidad",
+  "pk": 4,
+  "fields": {
+    "nombre": "Burpsuite",
+    "categoria": "seguridad",
+    "icono": "burpsuite.svg",
+    "orden": 3
+  }
+},
+{
+  "model": "landing.habilidad",
+  "pk": 5,
+  "fields": {
+    "nombre": "Metasploit",
+    "categoria": "seguridad",
+    "icono": "metasploit.png",
+    "orden": 4
+  }
+},
+{
+  "model": "landing.habilidad",
+  "pk": 6,
+  "fields": {
+    "nombre": "Python",
+    "categoria": "lenguajes",
+    "icono": "python.svg",
+    "orden": 0
+  }
+},
+{
+  "model": "landing.habilidad",
+  "pk": 7,
+  "fields": {
+    "nombre": "Django",
+    "categoria": "web",
+    "icono": "django.svg",
+    "orden": 0
+  }
+},
+{
+  "model": "landing.habilidad",
+  "pk": 8,
+  "fields": {
+    "nombre": "Docker",
+    "categoria": "web",
+    "icono": "docker.svg",
+    "orden": 1
+  }
 }
 ]
