@@ -97,4 +97,92 @@
         {% endfor %}
     </div>
 </section>
+
+<section id="proyectos" class="px-6 py-12 max-w-5xl mx-auto border-t border-terminal-border">
+    <p class="text-terminal-gray text-sm mb-8">$ ls -la proyectos/</p>
+    <h2 class="text-2xl font-bold text-white mb-6">Proyectos</h2>
+
+    <div class="grid md:grid-cols-2 gap-6">
+        {% for proyecto in proyectos %}
+            <article data-reveal
+                     class="relative border border-terminal-border bg-terminal-panel p-5 hover:border-terminal-green transition-all"
+                     style="clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));">
+                <h3 class="text-white font-bold text-lg mb-2">{{ proyecto.titulo }}</h3>
+                <p class="text-terminal-gray text-sm mb-4">{{ proyecto.descripcion }}</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    {% for tech in proyecto.lista_tecnologias %}
+                        <span class="border border-terminal-border text-terminal-gray text-xs px-2 py-1">{{ tech }}</span>
+                    {% endfor %}
+                </div>
+                <div class="flex gap-4 text-sm">
+                    {% if proyecto.repo_url %}
+                        <a href="{{ proyecto.repo_url }}" target="_blank" class="text-terminal-green hover:underline">$ git clone →</a>
+                    {% endif %}
+                    {% if proyecto.demo_url %}
+                        <a href="{{ proyecto.demo_url }}" target="_blank" class="text-terminal-green hover:underline">$ ./demo →</a>
+                    {% endif %}
+                </div>
+            </article>
+        {% empty %}
+            <p class="text-terminal-gray col-span-2">Aún no hay proyectos cargados.</p>
+        {% endfor %}
+    </div>
+</section>
+
+<section id="blog" class="px-6 py-12 max-w-5xl mx-auto border-t border-terminal-border">
+    <p class="text-terminal-gray text-sm mb-8">$ ls -la blog/</p>
+    <h2 class="text-2xl font-bold text-white mb-6">Blog</h2>
+
+    <div class="space-y-4">
+        {% for post in posts %}
+            <article data-reveal
+                     class="relative border border-terminal-border bg-terminal-panel p-5 hover:border-terminal-green transition-colors"
+                     style="clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));">
+                <p class="text-terminal-gray text-xs mb-1">{{ post.categoria }} · {{ post.creado|date:"d M Y" }}</p>
+                <h3 class="text-white font-bold text-lg mb-2">
+                    <a href="{{ post.get_absolute_url }}" class="hover:text-terminal-green hover:underline">{{ post.titulo }}</a>
+                </h3>
+                <p class="text-terminal-text text-sm">{{ post.resumen }}</p>
+            </article>
+        {% empty %}
+            <p class="text-terminal-gray">Aún no hay posts publicados.</p>
+        {% endfor %}
+    </div>
+
+    <a href="{% url 'lista_posts' %}" class="inline-block mt-6 text-terminal-green hover:underline text-sm">
+        $ ver todos los posts →
+    </a>
+</section>
+
+<section id="contacto" class="px-6 py-12 max-w-2xl mx-auto border-t border-terminal-border">
+    <p class="text-terminal-gray text-sm mb-2">root@hanssoto:~$ ./contacto.sh</p>
+    <h2 class="text-2xl font-bold text-white mb-6">Contacto</h2>
+
+    {% if messages %}
+        {% for message in messages %}
+            <p class="border border-terminal-green-dim bg-terminal-panel text-terminal-green px-4 py-2 mb-6 text-sm">
+                &gt; {{ message }}
+            </p>
+        {% endfor %}
+    {% endif %}
+
+    <form method="post" action="/#contacto" class="space-y-5">
+        {% csrf_token %}
+        {% for field in form %}
+            <div>
+                <label for="{{ field.id_for_label }}" class="block text-terminal-gray text-sm mb-1">
+                    {{ field.label }}:
+                </label>
+                {{ field }}
+                {% if field.errors %}
+                    <p class="text-terminal-red text-xs mt-1">{{ field.errors|striptags }}</p>
+                {% endif %}
+            </div>
+        {% endfor %}
+        <button type="submit"
+                class="border border-terminal-green text-terminal-green px-6 py-2 hover:bg-terminal-green hover:text-terminal-bg transition-colors">
+            $ enviar
+        </button>
+    </form>
+</section>
 {% endblock %}

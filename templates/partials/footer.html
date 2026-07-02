@@ -1,3 +1,11 @@
-<footer class="border-t border-terminal-border bg-terminal-panel px-6 py-4 text-center text-sm text-terminal-gray">
-    <p>&copy; {% now "Y" %} Hans Soto — <span class="text-terminal-green">$</span> exit 0</p>
+<footer class="relative z-10 border-t border-terminal-border bg-terminal-panel px-6 py-6 text-sm text-terminal-gray">
+    <div class="flex flex-col items-center gap-3">
+        <div class="flex justify-center gap-6">
+            <a href="https://www.linkedin.com/in/hans-soto-gonzalez-a142b8170/" target="_blank"
+               class="text-terminal-green-dim hover:text-terminal-green transition-colors">$ ./linkedin</a>
+            <a href="https://github.com/hanssoto-cyber" target="_blank"
+               class="text-terminal-green-dim hover:text-terminal-green transition-colors">$ ./github</a>
+        </div>
+        <p>&copy; {% now "Y" %} Hans Soto — <span class="text-terminal-green">$</span> exit 0</p>
+    </div>
 </footer>
