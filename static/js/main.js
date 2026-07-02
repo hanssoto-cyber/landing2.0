@@ -72,7 +72,7 @@ if (canvas) {
         width = canvas.width = window.innerWidth;
         height = canvas.height = window.innerHeight;
         const fontSize = 16;
-        columns = Math.floor(width / fontSize / 4); // menos columnas = más minimal
+        columns = Math.floor(width / fontSize / 2); // menos columnas = más minimal
         drops = new Array(columns).fill(0).map(() => Math.random() * -50);
     }
     resize();
@@ -83,7 +83,7 @@ if (canvas) {
         ctx.fillRect(0, 0, width, height);
 
         ctx.fillStyle = 'rgba(0, 255, 65, 0.25)'; // verde, baja opacidad
-        ctx.font = '16px monospace';
+        ctx.font = '10px monospace';
 
         const fontSize = 16;
         const spacing = width / columns;
