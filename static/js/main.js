@@ -59,3 +59,46 @@ if (contadores.length > 0) {
         });
     });
 }
+
+// Fondo matrix sutil
+const canvas = document.getElementById('matrix-bg');
+if (canvas) {
+    const ctx = canvas.getContext('2d');
+    let width, height, columns, drops;
+
+    const chars = '01アイウエオカキクケコサシスセソ$#@%';
+
+    function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+        const fontSize = 16;
+        columns = Math.floor(width / fontSize / 4); // menos columnas = más minimal
+        drops = new Array(columns).fill(0).map(() => Math.random() * -50);
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    function draw() {
+        ctx.fillStyle = 'rgba(10, 10, 10, 0.08)'; // estela suave
+        ctx.fillRect(0, 0, width, height);
+
+        ctx.fillStyle = 'rgba(0, 255, 65, 0.25)'; // verde, baja opacidad
+        ctx.font = '16px monospace';
+
+        const fontSize = 16;
+        const spacing = width / columns;
+
+        drops.forEach((y, i) => {
+            const char = chars[Math.floor(Math.random() * chars.length)];
+            const x = i * spacing;
+            ctx.fillText(char, x, y * fontSize);
+            if (y * fontSize > height && Math.random() > 0.98) {
+                drops[i] = 0;
+            } else {
+                drops[i] += 0.4; // velocidad lenta
+            }
+        });
+    }
+
+    setInterval(draw, 60); // menos FPS = más sutil, más liviano
+}

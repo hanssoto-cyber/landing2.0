@@ -11,12 +11,12 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body class="bg-terminal-bg text-terminal-text font-mono-terminal min-h-screen flex flex-col">
-    {% include 'partials/navbar.html' %}
+    <canvas id="matrix-bg" class="fixed inset-0 pointer-events-none z-0"></canvas>
 
-    <main class="flex-1">
+    {% include 'partials/navbar.html' %}
+    <main class="flex-1 relative z-10">
         {% block content %}{% endblock %}
     </main>
-
     {% include 'partials/footer.html' %}
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
